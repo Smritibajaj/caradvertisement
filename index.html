@@ -61,32 +61,32 @@
                     <div class="width-66">
                         <h6 class="text-6">Critics Rating</h6>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87"
+                            <div class="progress-bar" role="progressbar" aria-valuenow="87"
                                 aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                         <span class="text-5">87</span>
                         <h6 class="text-6">Performance</h6>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 64%" aria-valuenow="64"
+                            <div class="progress-bar" role="progressbar" aria-valuenow="64"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="text-5">64</span>
                         <h6 class="text-6">Interior</h6>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                            <div class="progress-bar" role="progressbar"  aria-valuenow="90"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span  class="text-5">90</span>
                         <h6 class="text-6">Safety</h6>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 44%" aria-valuenow="44"
+                            <div class="progress-bar" role="progressbar" aria-valuenow="44"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class=" text-5">44</span>
                         <h6 class="text-6">Relaibility</h6>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 52%" aria-valuenow="52"
+                            <div class="progress-bar" role="progressbar" aria-valuenow="52"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class=" text-5">52</span>
@@ -138,7 +138,9 @@
         </div>
 
     </div>
+    
     <script>
+
 
         $(".progress-circle").each(function () {
 
@@ -147,7 +149,7 @@
             var perc = parseInt($val.text(), 10);
 
             $({ p: 0 }).animate({ p: perc }, {
-                duration: 3000,
+                duration: 5000,
                 easing: "swing",
                 step: function (p) {
                     $bar.css({
@@ -157,14 +159,6 @@
                     $val.text(p | 0);
                 }
             });
-        });
-
-        $(document).ready(function () {
-            $('.progress .progress-bar').css("width",
-                function () {
-                   return $(this).attr("aria-valuenow") + "%";
-                }
-            )
         });
 
         (function ($) {
@@ -336,8 +330,30 @@
         $('span[data-index="3"]').addClass('class3');
         $('span[data-index="4"]').addClass('class4');
 
-
-    </script>
+            var $prog = $('body').find('.progress-bar');
+                $prog.each(function(j,pr){
+                   var m = $(pr).attr('aria-valuenow');
+                    $(pr).animate({width: m+"%"},5000);
+                });
+                var $val = $('body').find(".text-5");
+                $val.each(function(i,val){
+                var value = val.textContent;
+                //alert(value);
+                function update(start,end,duration){
+                    var current = start;
+                    var increment = end > start? 1 : -1;
+                    var stepTime = Math.abs(Math.floor(duration / end));
+                    var timer = setInterval(function() {
+                        current += increment;
+                        val.textContent = current;
+                        if (current == end) {
+                        clearInterval(timer);
+                        }
+                        }, stepTime);
+                        }
+                        update(0,value,5000);
+                    });
+        </script>
 </body>
 
 </html>

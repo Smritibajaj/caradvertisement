@@ -142,8 +142,7 @@ font-weight: bold;
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #fedd02;
-    transition-duration: 3s;
+    background: #fedd02;
 }
 .progress-circle{
     position: relative;
@@ -343,10 +342,13 @@ width:33%;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 728px) {
     #w-35   {
         width:100% !important; 
         margin-bottom: -50px; 
+    }
+    .text-5 {
+        margin-right: 30% !important;
     }
     #w-62{
         width:100%;  
