@@ -345,14 +345,14 @@ width:33%;
 
 @media only screen and (max-width: 600px) {
     #w-35   {
-        width:100%; 
+        width:100% !important; 
         margin-bottom: -50px; 
     }
     #w-62{
         width:100%;  
     }
     .width-66 {
-        width: 100%;
+        width: 100% !important;
         margin-left:8%;
     }
     .box3 {
@@ -369,14 +369,14 @@ width:33%;
     margin-bottom: 20px;
     }
     .slider-nav__dots {
-        margin-left: 25%;
+        margin-left: 25% !important;
     }
     .text-3, .text-4 {
     width: 90%;
     margin: 0 5%;
         }
     .progress-circle{
-    margin-left: 30px;
+    margin-left: 4px;
     margin-top:20px;
     }
 }
